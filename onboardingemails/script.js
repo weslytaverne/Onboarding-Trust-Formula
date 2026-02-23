@@ -31,13 +31,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const formSection = document.getElementById("form-section");
   const formSuccess = document.getElementById("form-success");
 
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      formSection.style.display = "none";
-      formSuccess.style.display = "block";
-      formSuccess.scrollIntoView({ behavior: "smooth" });
-    });
+  const form = document.getElementById("application-form");
+const success = document.getElementById("form-success");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault(); // prevent page reload
+
+  const data = new FormData(form);
+  const params = new URLSearchParams(data);
+
+  try {
+    await fetch("https://script.google.com/macros/s/AKfycbzgvtYhQBFkVcbDwmNJ89VY01EIL7X5yVQSwDdjJOcSB7jwQiTi5U26HZ-KJULyh-v-/exec", { method: "POST", body: params });
+    form.style.display = "none";
+    success.style.display = "block";
+  } catch (err) {
+    alert("Error submitting. Please try again.");
+    console.error(err);
   }
+});
 });
 
 
