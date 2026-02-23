@@ -1,4 +1,6 @@
+
 document.addEventListener("DOMContentLoaded", () => {
+  // ── Scroll Reveal Animation ──
   const revealElements = document.querySelectorAll(".reveal, .reveal-left");
 
   const observer = new IntersectionObserver(
@@ -15,32 +17,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   revealElements.forEach((el) => observer.observe(el));
 
+  // ── Smooth scroll for CTA buttons ──
   document.querySelectorAll("[data-scroll-to]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const target = document.querySelector(btn.getAttribute("data-scroll-to"));
+    btn.addEventListener("click", (e) => {
+      e.preventDefault(); // prevent default anchor jump
+      const targetSelector = btn.getAttribute("data-scroll-to");
+      const target = document.querySelector(targetSelector);
       if (target) target.scrollIntoView({ behavior: "smooth" });
     });
   });
 
+  // ── Form submission ──
   const form = document.getElementById("application-form");
   const success = document.getElementById("form-success");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  if (form && success) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault(); // stop default page reload
 
-    const data = new FormData(form);
-    const params = new URLSearchParams(data);
+      const data = new FormData(form);
+      const params = new URLSearchParams(data);
 
-    try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbzgvtYhQBFkVcbDwmNJ89VY01EIL7X5yVQSwDdjJOcSB7jwQiTi5U26HZ-KJULyh-v-/exec",
-        { method: "POST", body: params }
-      );
-      form.style.display = "none";
-      success.style.display = "block";
-    } catch (err) {
-      alert("Error submitting. Please try again.");
-      console.error(err);
-    }
-  });
+      try {
+        await fetch(
+          "https://script.google.com/macros/s/AKfycbzgvtYhQBFkVcbDwmNJ89VY01EIL7X5yVQSwDdjJOcSB7jwQiTi5U26HZ-KJULyh-v-/exec",
+          { method: "POST", body: params }
+        );
+        form.style.display = "none";
+        success.style.display = "block";
+      } catch (err) {
+        alert("Error submitting. Please try again.");
+        console.error(err);
+      }
+    });
+  }
 });
