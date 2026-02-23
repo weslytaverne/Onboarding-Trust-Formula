@@ -31,13 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const formSection = document.getElementById("form-section");
   const formSuccess = document.getElementById("form-success");
 
-  // if (form) {
-  //   form.addEventListener("submit", (e) => {
-  //     formSection.style.display = "none";
-  //     formSuccess.style.display = "block";
-  //     formSuccess.scrollIntoView({ behavior: "smooth" });
-  //   });
-  // }
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      formSection.style.display = "none";
+      formSuccess.style.display = "block";
+      formSuccess.scrollIntoView({ behavior: "smooth" });
+    });
+  }
 });
 
 
