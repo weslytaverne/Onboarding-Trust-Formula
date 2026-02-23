@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (form) {
     form.addEventListener("submit", (e) => {
-      e.preventDefault();
       formSection.style.display = "none";
       formSuccess.style.display = "block";
       formSuccess.scrollIntoView({ behavior: "smooth" });
@@ -41,22 +40,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-
-
-function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Form Responses"); // change "Sheet1" if needed
-  var data = e.parameter;
-
-  sheet.appendRow([
-    data.fullName,
-    data.email,
-    data.offer,
-    data.leads,
-    data.currentProcess,
-    data.struggle,
-    new Date()
-  ]);
-
-  return ContentService.createTextOutput("Success").setMimeType(ContentService.MimeType.TEXT);
-}
