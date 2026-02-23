@@ -1,4 +1,4 @@
-
+// ── main.js ──
 document.addEventListener("DOMContentLoaded", () => {
   // ── Scroll Reveal Animation ──
   const revealElements = document.querySelectorAll(".reveal, .reveal-left");
@@ -20,20 +20,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Smooth scroll for CTA buttons ──
   document.querySelectorAll("[data-scroll-to]").forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      e.preventDefault(); // prevent default anchor jump
+      e.preventDefault(); // stop default anchor jump
       const targetSelector = btn.getAttribute("data-scroll-to");
       const target = document.querySelector(targetSelector);
       if (target) target.scrollIntoView({ behavior: "smooth" });
     });
   });
 
-  // ── Form submission ──
+  // ── Form submission to Google Sheets ──
   const form = document.getElementById("application-form");
   const success = document.getElementById("form-success");
 
   if (form && success) {
     form.addEventListener("submit", async (e) => {
-      e.preventDefault(); // stop default page reload
+      e.preventDefault(); // prevent default form submit
 
       const data = new FormData(form);
       const params = new URLSearchParams(data);
