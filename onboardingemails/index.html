@@ -299,42 +299,43 @@
           <p class="text-lg text-muted mt-4">Fill out the form below to see if we're a good fit.</p>
         </div>
 
-        <form id="application-form" class="card form-card reveal delay-2">
-          <div class="form-group">
-            <label class="form-label">Full Name</label>
-            <input type="text" class="form-input" placeholder="Your full name" required />
-          </div>
+        
+        <form id="application-form" class="card form-card reveal delay-2" method="POST" action="https://script.google.com/macros/s/AKfycbz04zTCB_xRg5sOilCwaBz1dRi3BTR9zVbJKST6le2p6lKeAgDMyo_JdcKMAweeKhar/exec">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" name="fullName" placeholder="Your full name" required />
+        </div>
 
-          <div class="form-group">
-            <label class="form-label">Email / Instagram</label>
-            <input type="text" class="form-input" placeholder="your@email.com or @handle" required />
-          </div>
+        <div class="form-group">
+          <label class="form-label">Email / Instagram</label>
+          <input type="text" class="form-input" name="email" placeholder="your@email.com or @handle" required />
+        </div>
 
-          <div class="form-group">
-            <label class="form-label">Coaching Offer & Price Point</label>
-            <input type="text" class="form-input" placeholder="e.g., 1:1 Business Coaching — $3,000" required />
-          </div>
+        <div class="form-group">
+          <label class="form-label">Coaching Offer & Price Point</label>
+          <input type="text" class="form-input" name="offer" placeholder="e.g., 1:1 Business Coaching — $3,000" required />
+        </div>
 
-          <div class="form-group">
-            <label class="form-label">Average Monthly Leads</label>
-            <input type="text" class="form-input" placeholder="e.g., 50–100" required />
-          </div>
+        <div class="form-group">
+          <label class="form-label">Average Monthly Leads</label>
+          <input type="text" class="form-input" name="leads" placeholder="e.g., 50–100" required />
+        </div>
 
-          <div class="form-group">
-            <label class="form-label">Current Onboarding Process (if any)</label>
-            <textarea class="form-textarea" placeholder="Describe your current email onboarding..."></textarea>
-          </div>
+        <div class="form-group">
+          <label class="form-label">Current Onboarding Process (if any)</label>
+          <textarea class="form-textarea" name="currentProcess" placeholder="Describe your current email onboarding..."></textarea>
+        </div>
 
-          <div class="form-group">
-            <label class="form-label">Biggest Struggle With Onboarding Emails</label>
-            <textarea class="form-textarea" placeholder="What's your biggest challenge?" required></textarea>
-          </div>
+        <div class="form-group">
+          <label class="form-label">Biggest Struggle With Onboarding Emails</label>
+          <textarea class="form-textarea" name="struggle" placeholder="What's your biggest challenge?" required></textarea>
+        </div>
 
-          <button type="submit" class="btn btn--full glow-primary">
-            <svg class="icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Submit Application
-          </button>
-        </form>
+        <button type="submit" class="btn btn--full glow-primary">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Submit Application
+        </button>
+      </form>
       </div>
 
       <!-- Success state -->

@@ -40,3 +40,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+
+
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Form Responses"); // change "Sheet1" if needed
+  var data = e.parameter;
+
+  sheet.appendRow([
+    data.fullName,
+    data.email,
+    data.offer,
+    data.leads,
+    data.currentProcess,
+    data.struggle,
+    new Date()
+  ]);
+
+  return ContentService.createTextOutput("Success").setMimeType(ContentService.MimeType.TEXT);
+}
